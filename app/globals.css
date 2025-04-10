@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: clamp(3vw, 7vw, 10vw);
+  margin-bottom: .25rem;
+}
