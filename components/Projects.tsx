@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+// import Image from 'next/image';
+// import Link from 'next/link';
 
 // Mock project data - replace with your own projects
 const projectsData = [
