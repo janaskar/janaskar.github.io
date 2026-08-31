@@ -45,7 +45,7 @@ export default function Projects() {
     : projectsData.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="py-20 bg-slate-100">
+    <section id="projects" className="py-20 bg-slate-100 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
         
@@ -53,19 +53,19 @@ export default function Projects() {
           <div className="flex space-x-4">
             <button 
               onClick={() => setFilter("all")}
-              className={`px-4 py-2 rounded-md ${filter === "all" ? "bg-blue-500 text-white" : "bg-white"}`}
+              className={`px-4 py-2 rounded-md ${filter === "all" ? "bg-blue-500 text-white" : "bg-white dark:bg-gray-800"}`}
             >
               All
             </button>
             <button 
               onClick={() => setFilter("web")}
-              className={`px-4 py-2 rounded-md ${filter === "web" ? "bg-blue-500 text-white" : "bg-white"}`}
+              className={`px-4 py-2 rounded-md ${filter === "web" ? "bg-blue-500 text-white" : "bg-white dark:bg-gray-800"}`}
             >
               Web
             </button>
             <button 
               onClick={() => setFilter("app")}
-              className={`px-4 py-2 rounded-md ${filter === "app" ? "bg-blue-500 text-white" : "bg-white"}`}
+              className={`px-4 py-2 rounded-md ${filter === "app" ? "bg-blue-500 text-white" : "bg-white dark:bg-gray-800"}`}
             >
               Apps
             </button>
@@ -74,10 +74,10 @@ export default function Projects() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="bg-white rounded-lg overflow-hidden shadow-md">
-              <div className="h-48 bg-gray-200">
+            <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
+              <div className="h-48 bg-gray-200 dark:bg-gray-700">
                 {/* Replace with your project image */}
-                <div className="w-full h-full flex items-center justify-center bg-gray-300">
+                <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-600">
                   {/* Uncomment when images are added */}
                   {/* <Image
                     src={project.image}
@@ -85,19 +85,19 @@ export default function Projects() {
                     layout="fill"
                     objectFit="cover"
                   /> */}
-                  <p className="text-gray-600">Project Image</p>
+                  <p className="text-gray-600 dark:text-gray-300">Project Image</p>
                 </div>
               </div>
               
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
                 
                 <div className="mb-4 flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span 
                       key={index} 
-                      className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-md"
+                      className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs px-2 py-1 rounded-md"
                     >
                       {tech}
                     </span>

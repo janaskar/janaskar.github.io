@@ -1,19 +1,32 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/logo.svg';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(true);
-  
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
+
+  // The inline script in layout.tsx sets the class before paint; adopt whatever
+  // it decided so the icon matches the page on first render.
+  useEffect(() => {
+    setIsDarkTheme(document.documentElement.classList.contains('dark'));
+  }, []);
+
   const toggleTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
+    const next = !document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', next);
+    try {
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+    } catch {
+      // private mode or blocked storage: the theme still applies for this page view
+    }
+    setIsDarkTheme(next);
   };
 
   return (
-    <header className="fixed w-full bg-transparent z-100 text-white font-black mix-blend-difference" >
+    <header className="fixed w-full bg-transparent z-[100] text-white font-black mix-blend-difference" >
       {/* Background gradient */}
       <div className="relative flex justify-between items-center p-4">
         <Link href="/">

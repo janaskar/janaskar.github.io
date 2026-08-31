@@ -16,13 +16,13 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-950">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">My Skills</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* Frontend Skills */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4 text-center">Frontend</h3>
             <ul className="space-y-2">
               {frontendSkills.map((skill, index) => (
@@ -37,7 +37,7 @@ export default function Skills() {
           </div>
           
           {/* Backend Skills */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4 text-center">Backend</h3>
             <ul className="space-y-2">
               {backendSkills.map((skill, index) => (
@@ -52,7 +52,7 @@ export default function Skills() {
           </div>
           
           {/* Tools & Others */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-4 text-center">Tools & Others</h3>
             <ul className="space-y-2">
               {toolsSkills.map((skill, index) => (
