@@ -159,7 +159,9 @@ footer a:hover{color:var(--accent)}
 
 @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
 
-/* explicit theme stamps, so the toggle wins in both directions */
+/* Explicit theme stamps, so the toggle wins in both directions.
+   Every token is declared four times: here twice, plus bare :root and
+   the prefers-color-scheme block above. Change a colour in all four. */
 :root[data-theme="light"]{
   --paper:#F9F9F8; --surface:#FFFFFF; --surface-2:#EFEFEC;
   --ink:#1A1A1A; --ink-soft:#575757; --ink-faint:#8A8A8A;
