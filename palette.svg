@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1094" height="358" viewBox="0 0 1094 358" role="img" aria-label="Site colour palette: sun (light theme) and moon (dark theme)">
+  <style>
+    .h { font: 600 14px system-ui, sans-serif }
+    .s { font: 11px ui-monospace, monospace }
+    .n { font: 9px ui-monospace, monospace; letter-spacing: .05em }
+    .v { font: 11px ui-monospace, monospace }
+  </style>
+  <rect x="22" y="22" width="1050" height="150" rx="10" fill="#F9F9F8"/>
+  <text x="40" y="52" class="h" fill="#1A1A1A">Sun</text>
+  <text x="92" y="52" class="s" fill="#8A8A8A">light theme</text>
+  <rect x="40" y="66" width="78" height="58" rx="6" fill="#F9F9F8" stroke="#0000001f"/>
+  <text x="40" y="142" class="n" fill="#8A8A8A">paper</text>
+  <text x="40" y="156" class="v" fill="#575757">#F9F9F8</text>
+  <rect x="146" y="66" width="78" height="58" rx="6" fill="#FFFFFF" stroke="#0000001f"/>
+  <text x="146" y="142" class="n" fill="#8A8A8A">surface</text>
+  <text x="146" y="156" class="v" fill="#575757">#FFFFFF</text>
+  <rect x="252" y="66" width="78" height="58" rx="6" fill="#EFEFEC" stroke="#0000001f"/>
+  <text x="252" y="142" class="n" fill="#8A8A8A">surface-2</text>
+  <text x="252" y="156" class="v" fill="#575757">#EFEFEC</text>
+  <rect x="358" y="66" width="78" height="58" rx="6" fill="#1A1A1A" stroke="#0000001f"/>
+  <text x="358" y="142" class="n" fill="#8A8A8A">ink</text>
+  <text x="358" y="156" class="v" fill="#575757">#1A1A1A</text>
+  <rect x="464" y="66" width="78" height="58" rx="6" fill="#575757" stroke="#0000001f"/>
+  <text x="464" y="142" class="n" fill="#8A8A8A">ink-soft</text>
+  <text x="464" y="156" class="v" fill="#575757">#575757</text>
+  <rect x="570" y="66" width="78" height="58" rx="6" fill="#8A8A8A" stroke="#0000001f"/>
+  <text x="570" y="142" class="n" fill="#8A8A8A">ink-faint</text>
+  <text x="570" y="156" class="v" fill="#575757">#8A8A8A</text>
+  <rect x="676" y="66" width="78" height="58" rx="6" fill="#E3E3E1" stroke="#0000001f"/>
+  <text x="676" y="142" class="n" fill="#8A8A8A">rule</text>
+  <text x="676" y="156" class="v" fill="#575757">#E3E3E1</text>
+  <rect x="782" y="66" width="78" height="58" rx="6" fill="#EDEDEB" stroke="#0000001f"/>
+  <text x="782" y="142" class="n" fill="#8A8A8A">rule-soft</text>
+  <text x="782" y="156" class="v" fill="#575757">#EDEDEB</text>
+  <rect x="888" y="66" width="78" height="58" rx="6" fill="#8F6400" stroke="#0000001f"/>
+  <text x="888" y="142" class="n" fill="#8A8A8A">accent</text>
+  <text x="888" y="156" class="v" fill="#575757">#8F6400</text>
+  <rect x="994" y="66" width="78" height="58" rx="6" fill="#704E00" stroke="#0000001f"/>
+  <text x="994" y="142" class="n" fill="#8A8A8A">accent-hover</text>
+  <text x="994" y="156" class="v" fill="#575757">#704E00</text>
+  <rect x="22" y="186" width="1050" height="150" rx="10" fill="#101011"/>
+  <text x="40" y="216" class="h" fill="#EDEBE6">Moon</text>
+  <text x="92" y="216" class="s" fill="#74716B">dark theme</text>
+  <rect x="40" y="230" width="78" height="58" rx="6" fill="#101011" stroke="#ffffff26"/>
+  <text x="40" y="306" class="n" fill="#74716B">paper</text>
+  <text x="40" y="320" class="v" fill="#A09C94">#101011</text>
+  <rect x="146" y="230" width="78" height="58" rx="6" fill="#17171A" stroke="#ffffff26"/>
+  <text x="146" y="306" class="n" fill="#74716B">surface</text>
+  <text x="146" y="320" class="v" fill="#A09C94">#17171A</text>
+  <rect x="252" y="230" width="78" height="58" rx="6" fill="#1E1E22" stroke="#ffffff26"/>
+  <text x="252" y="306" class="n" fill="#74716B">surface-2</text>
+  <text x="252" y="320" class="v" fill="#A09C94">#1E1E22</text>
+  <rect x="358" y="230" width="78" height="58" rx="6" fill="#EDEBE6" stroke="#ffffff26"/>
+  <text x="358" y="306" class="n" fill="#74716B">ink</text>
+  <text x="358" y="320" class="v" fill="#A09C94">#EDEBE6</text>
+  <rect x="464" y="230" width="78" height="58" rx="6" fill="#A09C94" stroke="#ffffff26"/>
+  <text x="464" y="306" class="n" fill="#74716B">ink-soft</text>
+  <text x="464" y="320" class="v" fill="#A09C94">#A09C94</text>
+  <rect x="570" y="230" width="78" height="58" rx="6" fill="#74716B" stroke="#ffffff26"/>
+  <text x="570" y="306" class="n" fill="#74716B">ink-faint</text>
+  <text x="570" y="320" class="v" fill="#A09C94">#74716B</text>
+  <rect x="676" y="230" width="78" height="58" rx="6" fill="#27272B" stroke="#ffffff26"/>
+  <text x="676" y="306" class="n" fill="#74716B">rule</text>
+  <text x="676" y="320" class="v" fill="#A09C94">#27272B</text>
+  <rect x="782" y="230" width="78" height="58" rx="6" fill="#1C1C1F" stroke="#ffffff26"/>
+  <text x="782" y="306" class="n" fill="#74716B">rule-soft</text>
+  <text x="782" y="320" class="v" fill="#A09C94">#1C1C1F</text>
+  <rect x="888" y="230" width="78" height="58" rx="6" fill="#E0D6BC" stroke="#ffffff26"/>
+  <text x="888" y="306" class="n" fill="#74716B">accent</text>
+  <text x="888" y="320" class="v" fill="#A09C94">#E0D6BC</text>
+  <rect x="994" y="230" width="78" height="58" rx="6" fill="#EFE8D6" stroke="#ffffff26"/>
+  <text x="994" y="306" class="n" fill="#74716B">accent-hover</text>
+  <text x="994" y="320" class="v" fill="#A09C94">#EFE8D6</text>
+</svg>
