@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jay Janaskar — Robot Learning &amp; Visual Computing</title>
+<meta name="description" content="MSc Computer Science at NTNU Trondheim, specialising in Visual Computing. Robot learning in simulation, 3D reconstruction, and tactile SLAM.">
+<link rel="icon" href="favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jay Janaskar — Robot Learning &amp; Visual Computing">
+<meta property="og:description" content="MSc Computer Science at NTNU Trondheim. Robot learning in simulation, 3D reconstruction, and tactile SLAM with SINTEF Ocean.">
+<meta property="og:image" content="https://img.youtube.com/vi/H7UHbeMz4UI/maxresdefault.jpg">
+<meta property="og:url" content="https://janaskar.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+
+<style>
+:root{
+  --paper:#F7F6F3; --surface:#FFFFFF; --surface-2:#EFEEE9;
+  --ink:#16181A; --ink-soft:#5C6067; --ink-faint:#8B8F94;
+  --rule:#E2E0DA; --rule-soft:#EBE9E3;
+  --accent:#2F5D50; --accent-hover:#234639;
+  --shadow:0 1px 2px rgba(22,24,26,.04), 0 10px 30px -18px rgba(22,24,26,.25);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#0F1211; --surface:#171B1A; --surface-2:#1D2221;
+    --ink:#EDEEEA; --ink-soft:#A0A7A4; --ink-faint:#7A817E;
+    --rule:#262D2B; --rule-soft:#1F2624;
+    --accent:#7CBCA7; --accent-hover:#9AD0BD;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 32px -20px rgba(0,0,0,.8);
+  }
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:720px; margin:0 auto; padding:80px 24px 100px}
+
+.label{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-faint);
+}
+
+/* ---------- masthead ---------- */
+header{display:flex; flex-direction:column; gap:10px}
+h1{
+  font-size:clamp(38px,7vw,56px); font-weight:700; letter-spacing:-.032em;
+  line-height:1.0; margin:0;
+}
+.tagline{
+  font-size:clamp(18px,3vw,21px); font-weight:500;
+  color:var(--accent); margin:0; letter-spacing:-.012em;
+}
+.intro{margin:22px 0 0; max-width:60ch; color:var(--ink-soft)}
+.intro strong{color:var(--ink); font-weight:600}
+
+.links{display:flex; flex-wrap:wrap; gap:8px; margin-top:28px}
+.links a{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:8px 14px; border:1px solid var(--rule); border-radius:2px;
+  background:var(--surface); color:var(--ink);
+  font-size:14px; font-weight:500; text-decoration:none;
+  transition:border-color .15s ease, color .15s ease;
+}
+.links a:hover{border-color:var(--accent); color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.links .primary{background:var(--accent); border-color:var(--accent); color:var(--paper)}
+.links .primary:hover{background:var(--accent-hover); border-color:var(--accent-hover); color:var(--paper)}
+
+/* ---------- sections ---------- */
+section{margin-top:72px}
+.sec-head{
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+  padding-bottom:12px; border-bottom:1px solid var(--rule);
+}
+h2{font-size:15px; font-weight:600; letter-spacing:-.005em; margin:0}
+
+/* ---------- projects ---------- */
+.project{padding:32px 0; border-bottom:1px solid var(--rule-soft)}
+.project:last-child{border-bottom:0; padding-bottom:8px}
+.project h3{
+  font-size:22px; font-weight:600; letter-spacing:-.018em;
+  margin:0 0 4px; line-height:1.24; text-wrap:balance;
+}
+.project .meta{margin:0 0 14px}
+.project p{margin:0 0 12px; color:var(--ink-soft); font-size:16px}
+.project p:last-of-type{margin-bottom:0}
+.project strong{color:var(--ink); font-weight:600}
+
+.videos{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0 18px}
+@media (max-width:560px){ .videos{grid-template-columns:1fr} }
+.vid{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--rule); border-radius:3px; overflow:hidden;
+  background:var(--surface); transition:border-color .15s ease;
+}
+.vid:hover{border-color:var(--accent)}
+.vid:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.thumb{position:relative; aspect-ratio:16/9; background:var(--surface-2)}
+.thumb img{width:100%; height:100%; object-fit:cover; display:block}
+.thumb iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.play{
+  position:absolute; inset:0; display:grid; place-content:center;
+}
+.play span{
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(15,18,17,.72); backdrop-filter:blur(2px);
+  display:grid; place-content:center;
+}
+.play svg{width:14px; height:14px; fill:#fff; margin-left:2px}
+.vid figcaption{padding:10px 12px; font-size:13.5px; font-weight:500}
+.vid figcaption em{display:block; font-style:normal; color:var(--ink-faint); font-weight:400; font-size:12.5px; margin-top:1px}
+
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:16px}
+.tag{
+  font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.03em;
+  padding:3px 8px; background:var(--surface-2); color:var(--ink-soft); border-radius:2px;
+}
+
+/* ---------- background list ---------- */
+.rows{display:flex; flex-direction:column}
+.row{
+  display:grid; grid-template-columns:130px 1fr; gap:4px 20px;
+  padding:15px 0; border-bottom:1px solid var(--rule-soft);
+}
+.row:last-child{border-bottom:0}
+@media (max-width:560px){ .row{grid-template-columns:1fr; gap:2px} }
+.row .when{
+  font-family:"JetBrains Mono",monospace; font-size:12px;
+  color:var(--ink-faint); padding-top:3px; font-variant-numeric:tabular-nums;
+}
+.row .what{font-size:16px; font-weight:600; letter-spacing:-.008em}
+.row .where{grid-column:2; font-size:15px; color:var(--ink-soft)}
+@media (max-width:560px){ .row .where{grid-column:1} }
+
+a.inline{color:var(--accent); text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px}
+a.inline:hover{color:var(--accent-hover)}
+a.inline:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+
+footer{
+  margin-top:72px; padding-top:22px; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:6px 18px; justify-content:space-between;
+  font-family:"JetBrains Mono",monospace; font-size:11px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);
+}
+footer a{color:var(--ink-faint); text-decoration:none}
+footer a:hover{color:var(--accent)}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+
+/* explicit theme stamps, so the toggle wins in both directions */
+:root[data-theme="light"]{
+  --paper:#F7F6F3; --surface:#FFFFFF; --surface-2:#EFEEE9;
+  --ink:#16181A; --ink-soft:#5C6067; --ink-faint:#8B8F94;
+  --rule:#E2E0DA; --rule-soft:#EBE9E3;
+  --accent:#2F5D50; --accent-hover:#234639;
+}
+:root[data-theme="dark"]{
+  --paper:#0F1211; --surface:#171B1A; --surface-2:#1D2221;
+  --ink:#EDEEEA; --ink-soft:#A0A7A4; --ink-faint:#7A817E;
+  --rule:#262D2B; --rule-soft:#1F2624;
+  --accent:#7CBCA7; --accent-hover:#9AD0BD;
+}
+
+/* fixed header, inverting against whatever scrolls under it */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  mix-blend-mode:difference; pointer-events:none;
+}
+.topbar .inner{
+  max-width:720px; margin:0 auto; padding:20px 24px;
+  display:flex; align-items:center; gap:24px;
+  pointer-events:auto;
+}
+.topbar .logo{line-height:0; margin-right:auto}
+.topbar .logo img{height:19px; width:auto; display:block; filter:invert(1)}
+.topbar nav{display:flex; gap:22px}
+.topbar a{
+  color:#fff; font-weight:700; font-size:14px;
+  text-decoration:none; letter-spacing:-.005em;
+}
+.topbar a:hover{opacity:.7}
+.topbar a:focus-visible, .topbar button:focus-visible{outline:2px solid #fff; outline-offset:4px}
+.topbar button{
+  background:none; border:0; padding:0; cursor:pointer;
+  display:grid; place-content:center; color:#fff;
+}
+.topbar button svg{width:19px; height:19px; fill:none; stroke:#fff; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round}
+@media (max-width:560px){ .topbar nav{display:none} }
+
+.wrap{padding-top:104px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="inner">
+    <a class="logo" href="/"><img src="logo.svg" alt="Janaskar" width="124" height="24"></a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#background">Background</a>
+      <a href="mailto:jayjanaskar@gmail.com">Contact</a>
+    </nav>
+    <button id="theme" type="button" aria-label="Switch colour theme">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="themeIcon" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <div class="label">Trondheim, Norway</div>
+    <h1>Jay Janaskar</h1>
+    <p class="tagline">Robot Learning &amp; Visual Computing</p>
+    <p class="intro">
+      I&rsquo;m a computer science master&rsquo;s student at <strong>NTNU Trondheim</strong>, specialising in
+      Visual Computing, with an exchange semester at <strong>ETH Z&uuml;rich</strong>. My work sits between
+      reinforcement learning for humanoid control and 3D reconstruction &mdash; currently a master&rsquo;s
+      thesis with <strong>SINTEF Ocean</strong> on tactile SLAM, using touch to sharpen 3D models where
+      vision alone is too noisy.
+    </p>
+    <nav class="links">
+      <a class="primary" href="CV-Jay-Janaskar.pdf">Curriculum vitae &darr;</a>
+      <a href="mailto:jayjanaskar@gmail.com">Email</a>
+      <a href="https://github.com/janaskar">GitHub</a>
+      <a href="https://linkedin.com/in/janaskar">LinkedIn</a>
+    </nav>
+  </header>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <div class="label">2026</div>
+    </div>
+
+    <article class="project">
+      <h3>DribbleAMP &mdash; Adversarial Motion Priors for football dribbling</h3>
+      <div class="label meta">Digital Humans, ETH Z&uuml;rich &middot; team of two</div>
+      <p>
+        Humanoid dribbling policies trained with <strong>Adversarial Motion Priors</strong>, where a learned
+        discriminator replaces hand-written style rewards. I built the Unitree G1 environment and the
+        Isaac Lab backend, and ran PPO on MimicKit with 1024 parallel environments in the Newton GPU
+        simulator.
+      </p>
+
+      <div class="videos">
+        <a class="vid" href="https://youtu.be/f0HXS8HKP3Q" data-yt="f0HXS8HKP3Q">
+          <figure style="margin:0">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/f0HXS8HKP3Q/maxresdefault.jpg" alt="Unitree G1 approaching and kicking a ball in simulation" loading="lazy">
+              <div class="play"><span><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span></div>
+            </div>
+            <figcaption>Stage 1 &mdash; chase and kick<em>G1 learns to approach the ball</em></figcaption>
+          </figure>
+        </a>
+        <a class="vid" href="https://youtu.be/H7UHbeMz4UI" data-yt="H7UHbeMz4UI">
+          <figure style="margin:0">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/H7UHbeMz4UI/maxresdefault.jpg" alt="Unitree G1 dribbling a ball along a commanded velocity in simulation" loading="lazy">
+              <div class="play"><span><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0l12 7-12 7z"/></svg></span></div>
+            </div>
+            <figcaption>Stage 2 &mdash; dribble<em>Following a commanded ball velocity</em></figcaption>
+          </figure>
+        </a>
+      </div>
+
+      <p>
+        We measured what the style reward actually buys. AMP produced a natural, upright gait, but at an
+        equal training budget the no-AMP baseline halved speed and angle error &mdash; while dribbling in a
+        crouch no one would call human. Code at
+        <a class="inline" href="https://github.com/ErykHalicki/DribbleAMP">github.com/ErykHalicki/DribbleAMP</a>.
+      </p>
+
+      <div class="tags">
+        <span class="tag">PPO</span><span class="tag">Adversarial Motion Priors</span>
+        <span class="tag">Isaac Lab</span><span class="tag">MimicKit</span>
+        <span class="tag">Newton</span><span class="tag">Unitree G1</span>
+      </div>
+    </article>
+
+    <article class="project">
+      <h3>Functional scene graphs with articulated object states</h3>
+      <div class="label meta">3D Vision, ETH Z&uuml;rich &middot; team of three</div>
+      <p>
+        We extended functional 3D scene graphs to carry <strong>articulation state</strong>, so a robot can
+        track a scene as it changes instead of rescanning it. Grounding DINO, SAM and Qwen3-VL detect
+        objects and their parts, merged across RGB-D views.
+      </p>
+      <p>
+        Fusing repeated interactions cut axis-angle error by <strong>36%</strong> (4.99&deg; to 3.19&deg;) and
+        axis-line position error by <strong>19%</strong> (0.139&nbsp;m to 0.112&nbsp;m). Joint-type accuracy
+        rose from 86.6% to 100%. I wrote the proposal and final presentations, reviewed the team&rsquo;s code,
+        and documented the pipeline.
+      </p>
+      <div class="tags">
+        <span class="tag">3D scene graphs</span><span class="tag">Grounding DINO</span>
+        <span class="tag">SAM</span><span class="tag">Qwen3-VL</span><span class="tag">RGB-D</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="background">
+    <div class="sec-head">
+      <h2>Background</h2>
+      <div class="label">2018 &rarr; 2027</div>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <div class="when">2025 &ndash; 2027</div>
+        <div class="what">MSc Computer Science, Visual Computing</div>
+        <div class="where">NTNU Trondheim &middot; thesis with SINTEF Ocean on tactile SLAM</div>
+      </div>
+      <div class="row">
+        <div class="when">Feb &ndash; Aug 2026</div>
+        <div class="what">Exchange semester, D-INFK</div>
+        <div class="where">ETH Z&uuml;rich &middot; 3D Vision, Digital Humans, Shape Modeling &amp; Geometry Processing</div>
+      </div>
+      <div class="row">
+        <div class="when">2022 &ndash; 2025</div>
+        <div class="what">BSc Computer Engineering</div>
+        <div class="where">OsloMet &middot; thesis with SINTEF Digital on entity-linking APIs</div>
+      </div>
+      <div class="row">
+        <div class="when">2024</div>
+        <div class="what">Exchange semester</div>
+        <div class="where">Nelson Mandela University, South Africa</div>
+      </div>
+      <div class="row">
+        <div class="when">2020 &ndash; 2022</div>
+        <div class="what">Apprentice, IT</div>
+        <div class="where">Sandnes Kommune &middot; networks, directory and device management</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Jay Janaskar &middot; Trondheim</span>
+    <span><a href="mailto:jayjanaskar@gmail.com">jayjanaskar@gmail.com</a></span>
+  </footer>
+
+</div>
+
+<script>
+// Click-to-load: the cards stay plain links until clicked, so no YouTube code
+// (and no cookies) load with the page. Without JS they still open YouTube.
+(function(){
+  var cards = document.querySelectorAll(".vid[data-yt]");
+  Array.prototype.forEach.call(cards, function(card){
+    card.addEventListener("click", function(e){
+      var thumb = card.querySelector(".thumb");
+      if (!thumb || thumb.querySelector("iframe")) return;
+      e.preventDefault();
+
+      var cap = card.querySelector("figcaption");
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + card.dataset.yt +
+                  "?autoplay=1&rel=0";
+      frame.title = cap ? cap.textContent.trim() : "Video";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; " +
+                    "gyroscope; picture-in-picture; web-share";
+      frame.setAttribute("allowfullscreen", "");
+
+      thumb.textContent = "";
+      thumb.appendChild(frame);
+      // stop behaving like a link now that it holds a player
+      card.removeAttribute("href");
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn  = document.getElementById("theme");
+  var icon = document.getElementById("themeIcon");
+  var SUN  = "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z";
+  var MOON = "M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z";
+
+  function current(){
+    var set = root.getAttribute("data-theme");
+    if (set) return set;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  function paint(){ icon.setAttribute("d", current() === "dark" ? MOON : SUN); }
+
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  } catch (e) {}
+
+  paint();
+  btn.addEventListener("click", function(){
+    var next = current() === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
